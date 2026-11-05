@@ -1,0 +1,268 @@
+/* =====================================================================
+ * Lead Capture Popup - styles
+ * ===================================================================== */
+
+/* Overlay */
+#lead-popup-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 999999;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 50px 16px;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+#lead-popup-overlay.lead-popup-visible {
+	visibility: visible;
+	opacity: 1;
+}
+
+#lead-popup-overlay.lead-popup-visible #lead-popup-content {
+	transform: translateY(0);
+}
+
+/* Modal */
+#lead-popup-content {
+	background: var(--lead-popup-bg, #ffffff);
+	color: #222;
+	padding: 32px;
+	border-radius: 8px;
+	width: 100%;
+	max-width: 500px;
+	max-height: calc(100vh - 100px);
+	overflow-y: auto;
+	position: relative;
+	transform: translateY(-30px);
+	transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+	font-family: inherit;
+	box-sizing: border-box;
+	outline: none;
+}
+
+#lead-popup-content:focus-visible {
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 0 3px #0073aa;
+}
+
+#lead-popup-overlay #lead-popup-content h2 {
+	margin: 0 0 18px !important;
+	font-size: 22px !important;
+	line-height: 1.3 !important;
+	padding-right: 30px !important;
+	color: #222 !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	font-weight: 700 !important;
+}
+
+/* Close button */
+#lead-popup-close {
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	width: 36px;
+	height: 36px;
+	font-size: 26px;
+	line-height: 1;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #444;
+	border-radius: 50%;
+	transition: background 0.15s ease;
+}
+
+#lead-popup-close:hover,
+#lead-popup-close:focus-visible {
+	background: rgba(0, 0, 0, 0.08);
+	outline: none;
+}
+
+/* Form rows */
+#lead-popup-form p {
+	margin: 0 0 14px;
+}
+
+#lead-popup-content #lead-popup-form label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #222 !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+}
+
+#lead-popup-form .lead-popup-required {
+	color: #c0392b;
+}
+
+#lead-popup-form .lead-popup-checkbox-row label {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+#lead-popup-form .lead-popup-checkbox-row input[type="checkbox"] {
+	margin-top: 3px;
+	flex-shrink: 0;
+}
+
+#lead-popup-content #lead-popup-form input[type="text"],
+#lead-popup-content #lead-popup-form input[type="email"] {
+	display: block !important;
+	width: 100% !important;
+	padding: 10px 12px !important;
+	box-sizing: border-box !important;
+	border: 1px solid #999 !important;
+	border-radius: 4px !important;
+	font-size: 15px !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+	font-weight: 400 !important;
+	font-style: normal !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+	background: #ffffff !important;
+	color: #222 !important;
+	height: auto !important;
+	min-height: 42px !important;
+	line-height: 1.4 !important;
+	margin: 0 !important;
+	box-shadow: none !important;
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#lead-popup-content #lead-popup-form input[type="text"]:focus,
+#lead-popup-content #lead-popup-form input[type="email"]:focus {
+	border-color: #0073aa !important;
+	outline: none !important;
+	box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.2) !important;
+}
+
+/* Red border ONLY after JS marks it invalid (i.e. submit attempted with bad input) */
+#lead-popup-content #lead-popup-form input.lead-popup-invalid {
+	border-color: #c0392b !important;
+	box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15) !important;
+}
+
+#lead-popup-content #lead-popup-submit-btn {
+	display: block !important;
+	background: #0073aa !important;
+	color: #ffffff !important;
+	padding: 12px 20px !important;
+	border: none !important;
+	border-radius: 4px !important;
+	cursor: pointer !important;
+	font-size: 15px !important;
+	font-weight: 600 !important;
+	width: 100% !important;
+	height: auto !important;
+	margin: 0 !important;
+	line-height: 1.4 !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	transition: background 0.15s ease, opacity 0.15s ease !important;
+}
+
+#lead-popup-content #lead-popup-submit-btn:hover:not(:disabled),
+#lead-popup-content #lead-popup-submit-btn:focus-visible:not(:disabled) {
+	background: #005a87 !important;
+	color: #ffffff !important;
+	outline: none !important;
+}
+
+#lead-popup-content #lead-popup-submit-btn:disabled {
+	background: #888 !important;
+	cursor: not-allowed !important;
+	opacity: 0.85 !important;
+}
+
+/* Status / messages */
+#lead-popup-message {
+	margin: 14px 0 0;
+	font-size: 14px;
+	font-weight: 600;
+	min-height: 1.2em;
+}
+
+#lead-popup-message.is-success {
+	color: #1e7e34;
+}
+
+#lead-popup-message.is-error {
+	color: #c0392b;
+}
+
+/* Privacy */
+.lead-popup-privacy {
+	margin: 12px 0 0;
+	font-size: 12px;
+	color: #666;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+/* Honeypot */
+.lead-popup-hp {
+	position: absolute !important;
+	left: -9999px !important;
+	top: -9999px !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+/* Hidden state */
+.lead-popup-hidden {
+	display: none !important;
+}
+
+/* Body scroll lock helper */
+body.lead-popup-no-scroll {
+	overflow: hidden;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+	#lead-popup-overlay {
+		padding: 20px 12px;
+		align-items: flex-start;
+	}
+	#lead-popup-content {
+		padding: 24px 20px;
+		max-height: calc(100vh - 40px);
+	}
+	#lead-popup-content h2 {
+		font-size: 19px;
+	}
+	#lead-popup-submit-btn {
+		padding: 14px 20px;
+		font-size: 16px;
+	}
+	#lead-popup-form input[type="text"],
+	#lead-popup-form input[type="email"] {
+		padding: 12px;
+		font-size: 16px; /* prevents iOS zoom on focus */
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	#lead-popup-overlay,
+	#lead-popup-content {
+		transition: none;
+	}
+}

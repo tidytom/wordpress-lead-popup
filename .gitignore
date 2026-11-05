@@ -1,0 +1,13 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Build and release archives
+*.zip
+
+# Local tooling (not part of the plugin)
+node_modules/
+vendor/

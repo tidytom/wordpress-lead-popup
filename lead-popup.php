@@ -5,7 +5,7 @@
  * Version:           1.0.0
  * Requires at least: 4.7
  * Requires PHP:      7.0
- * Author:            tomteaprogrammer
+ * Author:            tidytom
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
  * Text Domain:       lead-popup
